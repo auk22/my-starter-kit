@@ -1,0 +1,61 @@
+/*
+---
+name: Margin
+tag:
+  - utility
+category:
+  - object
+  - object/utility
+  - object/utility/magin
+---
+
+余白を取るためのヘルパークラス。margin,paddingがある。
+コンポーネントに独自のmarginを持たせてしまうと再利用しづらくなるため、ヘルパークラスを使います。
+8の倍数で0から240まで予め用意しています。
+「.u-mb-4x」の様に使います。数字×8の余白がつきます。
+
+### 用語解説
+m,p = margin,padding
+t,r,b,l = top, right, bottom, left
+0x, 1x, 2x = 0px 8px 16px
+
+```html
+<p class="u-mb-4x">test</p>
+<p>test</p>
+```
+*/
+
+// MarginとPaddingを8の倍数自動で生成　0 ~ 240
+// -----------------------------------------------------
+@for $i from 0 through 30 {
+  .u-m-#{$i}x {
+    margin:#{$i * 8}px;
+  }
+  .u-mt-#{$i}x {
+    margin-top:#{$i * 8}px;
+  }
+  .u-mr-#{$i}x {
+    margin-right:#{$i * 8}px;
+  }
+  .u-mb-#{$i}x {
+    margin-bottom:#{$i * 8}px;
+  }
+  .u-ml-#{$i}x {
+    margin-left:#{$i * 8}px;
+  }
+  .u-p-#{$i}x {
+    padding:#{$i * 8}px;
+  }
+  .u-pt-#{$i}x {
+    padding-top:#{$i * 8}px;
+  }
+  .u-pr-#{$i}x {
+    padding-right:#{$i * 8}px;
+  }
+  .u-pb-#{$i}x {
+    padding-bottom:#{$i * 8}px;
+  }
+  .u-pl-#{$i}x {
+    padding-left:#{$i * 8}px;
+  }
+}

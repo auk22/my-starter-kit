@@ -1,0 +1,67 @@
+/*
+---
+name: Valiables
+tag:
+  - base
+category:
+  - foundation
+  - foundation/valiables
+---
+
+変数(valiable)はこちら。
+
+*/
+
+// colors
+// -----------------------
+
+// text
+$color-mainText: #000000;
+$color-title: rgba($color-mainText, .9);
+$color-text: rgba($color-mainText, .75);
+$color-small: rgba($color-mainText, .6);
+$color-link: #878378;
+$color-graytext: rgba(#92a8b9, .9);
+
+$color-logo: #4f5f8f;
+
+$color-primary: #116eb4;
+$color-secondary: #1b92d1;
+$color-tertiary: #ffe506;
+
+$color-main: #4DA7EE;
+$color-accent: #fff71a;
+$color-light-gray: #f0f4f7;
+$color-dark-gray: #d7e0e3;
+$color-black: #353535;
+
+$color-border: rgba(0,0,0,.05);
+
+$color-gradation: linear-gradient(-45deg, #{$color-primary}, #{$color-secondary});
+$color-gradation-accent: linear-gradient(-45deg, #ffea00, #{$color-accent});
+
+// sizes
+$column-gap: 24px !default;
+$max-width: 1280px;
+
+
+// paths
+// $pathToImg: "/img/";
+$pathToImg: "/img/";
+
+
+// Typography
+$root-font-size: 62.5%;
+$base-font-size: 1.6rem;
+$line-height: 2;
+$gwf: ''; // google web font
+$font-family: Hiragino Kaku Gothic ProN, Meiryo, sans-serif !default;
+
+// breakpoint
+$tablet: 600px !default;
+$desktop: 900px !default;
+$widescreen: 1200px !default;
+$fullhd: 1500px !default;
+
+// animation
+$transition: .3s;

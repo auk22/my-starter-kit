@@ -1,0 +1,19 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width,initial-scale=1")
+title #{pageTitle}
+meta(name="description" content=pageDesc)
+//- faviconはルートディレクトリ(dist)に置く
+link(rel="icon" href=pathToHtml + "favicon.ico")
+link(rel="apple-touch-icon" href=pathToHtml + "apple-touch-icon.png" sizes="152x152")
+meta(property="og:title", content=pageTitle)
+meta(property="og:type", content=pageType)
+meta(property="og:url", content=pageUrl)
+meta(property="og:image", content=ogImg)
+meta(property="og:description", content=pageDesc)
+
+block css
+  link(rel="stylesheet" href=pathToCss + "style.min.css")
+
+if noindex
+  meta(name="robots" content="noindex")

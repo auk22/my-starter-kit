@@ -1,0 +1,14 @@
+.c-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 24px 32px;
+  background-color: $color-accent;
+  border-radius: 4px;
+  color: $color-small;
+  line-height: 1;
+  font-weight: bold;
+  transition: $transition;
+  text-decoration: none;
+  text-align: center;
+  background-image: $color-gradation-accent;
+}

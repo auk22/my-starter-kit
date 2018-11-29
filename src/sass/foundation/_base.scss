@@ -1,0 +1,95 @@
+/*
+---
+name: base
+tag:
+  - base
+  - latest
+category:
+  - foundation
+  - foundation/base
+---
+
+* font-sizeはroot(html)に62.5%を指定しているため、1rem = 10pxです
+* ResetCSSは[ress](https://github.com/filipelinhares/ress)を使用。
+* グローバルセレクタ（*）でbox-sizing: border-box;指定済み
+
+*/
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-size:   $root-font-size;
+}
+
+body {
+  font-family: $font-family;
+  color:       $color-text;
+  line-height: $line-height;
+  font-size:   $base-font-size;
+}
+
+// fluid image
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+p, ul, ol, dl, table, pre, blockquote {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// Typography
+// -----------------------------------------------------
+
+h1,h2,h3,h4,h5,h6 {
+  color: $color-title;
+}
+
+small {
+  color: $color-small;
+}
+
+ol ol, ol ul, ul ol, ul ul {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+
+// ----- フォーム回りのリセット -----
+fieldset,
+iframe {
+  border: none;
+}
+
+
+// ----- Classを持たないaタグ（リンク） -----
+a:not([class]) {
+  color: $color-primary;
+  &:hover {
+    color: lighten($color-primary, 30);
+  }
+  &:visited {
+    color: darken($color-primary, 20);
+    &:hover {
+      color: lighten($color-primary, 30);
+    }
+  }
+}

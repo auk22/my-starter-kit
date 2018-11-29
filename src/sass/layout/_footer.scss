@@ -1,0 +1,24 @@
+.l-footer {
+  flex: 0 1 auto;
+  margin-top: auto;
+  border-top: 1px solid $color-border;
+
+  &__inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 7.46666667%;
+
+    @include widescreen {
+      padding: 0 84px;
+      max-width: $max-width;
+    }
+  }
+
+  &__copyright {
+    display: block;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #999;
+  }
+}

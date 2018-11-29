@@ -1,0 +1,19 @@
+.l-container {
+  width: 100%;
+
+  &--gradation {
+    background-image: $color-gradation;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    padding: 40px 7.46666667%;
+    @include tablet {
+      padding: 64px 7.46666667%;
+    }
+    @include desktop {
+      padding: 80px 84px;
+      max-width: $max-width;
+    }
+  }
+}
