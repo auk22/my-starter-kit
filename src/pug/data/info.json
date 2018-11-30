@@ -1,6 +1,8 @@
 {
-  "id" : "test",
-  "year" : "2017",
-  "month" : "06",
-  "day" : "05"
+  "id"          : "",
+  "name"        : "サイト名",
+  "description" : "サイト概要",
+  "rootUrl"     : "https://example.com/",
+  "ogpImage"    : "https://example.com/images/og-image.jpg",
+  "ogpImageAlt" : ""
 }

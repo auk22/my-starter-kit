@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title></title>
-    <meta name="description" content="">
+    <title>サイト名</title>
+    <meta name="description" content="サイト概要">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="152x152">
-    <meta property="og:title" content="">
-    <meta property="og:type">
-    <meta property="og:url">
-    <meta property="og:image">
-    <meta property="og:description" content="">
+    <meta property="og:title" content="サイト名">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:image" content="https://example.com/images/og-image.jpg">
+    <meta property="og:image:alt" content="">
+    <meta property="og:description" content="サイト概要">
+    <meta property="og:site_name" content="サイト名">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="/css/style.min.css">
   </head>
   <body class="l-body">
@@ -26,9 +29,49 @@
         <li><a href="#">nav3</a></li>
       </ul>
     </nav>
+    <!-- パンくずリスト-->
+    <ol class="c-breadcrumbs">
+      <li class="c-breadcrumbs__item"><a class="c-breadcrumbs__text c-breadcrumbs__link" href="/">HOME</a></li>
+      <li class="c-breadcrumbs__item"><span class="c-breadcrumbs__text">SECOND</span></li>
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement":
+          [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item":
+              {
+                "@id": "https://example.com/",
+                "name": "サイト名"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item":
+              {
+                "@id": "https://example.com/second/",
+                "name": "第2階層"
+              }
+            }
+          ]
+        }
+      </script>
+    </ol>
+    <!-- /パンくずリスト-->
     <main class="l-main">
       <section class="l-containe">
-        <h1>test</h1>
+        <h1>H1 Heading</h1>
+        <h2>H2 Heading</h2>
+        <h3>H3 Heading</h3>
+        <h4>H4 Heading</h4>
+        <h5>H5 Heading</h5>
+        <h6>H6 Heading</h6>
+        <p>Paragraph</p>
+        <p><small>Small</small></p><a href="#">Link</a>
       </section>
     </main>
     <aside>

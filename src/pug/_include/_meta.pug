@@ -1,16 +1,28 @@
 meta(charset="UTF-8")
 meta(http-equiv="X-UA-Compatible" content="IE=edge")
 meta(name="viewport" content="width=device-width,initial-scale=1")
-title #{pageTitle}
+
+if pageTitle
+  -var currentTitle = pageTitle + '｜' + info.name
+else
+  -var currentTitle = info.name
+
+title #{currentTitle}
 meta(name="description" content=pageDesc)
 //- faviconはルートディレクトリ(dist)に置く
 link(rel="icon" href=pathToHtml + "favicon.ico")
 link(rel="apple-touch-icon" href=pathToHtml + "apple-touch-icon.png" sizes="152x152")
-meta(property="og:title", content=pageTitle)
-meta(property="og:type", content=pageType)
+meta(property="og:title", content=currentTitle)
+if flag === "top"
+  meta(property="og:type", content="website")
+else
+  meta(property="og:type", content="article")
 meta(property="og:url", content=pageUrl)
-meta(property="og:image", content=ogImg)
+meta(property="og:image", content=ogpImage)
+meta(property="og:image:alt", content=ogpImageAlt)
 meta(property="og:description", content=pageDesc)
+meta(property="og:site_name", content=siteName)
+meta(name="twitter:card" content="summary")
 
 block css
   link(rel="stylesheet" href=pathToCss + "style.min.css")

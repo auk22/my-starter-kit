@@ -1,16 +1,60 @@
 extend /_include/_layout
 
 append variables
-  - var pageTitle = "";
-  - var pageDesc = "";
+  //- - var pageTitle = "";
+  //- - var pageDesc = "";
   - var flag = "";
 
 block content
 
+  // パンくずリスト
+  ol.c-breadcrumbs
+    li.c-breadcrumbs__item
+      a.c-breadcrumbs__text.c-breadcrumbs__link(href="/") HOME
+    li.c-breadcrumbs__item
+      span.c-breadcrumbs__text SECOND
+
+    script(type="application/ld+json").
+      {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item":
+            {
+              "@id": "#{info.rootUrl}",
+              "name": "#{info.name}"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item":
+            {
+              "@id": "#{info.rootUrl}second/",
+              "name": "第2階層"
+            }
+          }
+        ]
+      }
+  // /パンくずリスト
+
   main.l-main
 
     section.l-containe
-      h1 test
+      h1 H1 Heading
+      h2 H2 Heading
+      h3 H3 Heading
+      h4 H4 Heading
+      h5 H5 Heading
+      h6 H6 Heading
+      p Paragraph
+      p
+        small Small
+      a(href="#") Link
 
   aside
     p aside
