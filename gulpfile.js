@@ -2,6 +2,8 @@
 
 // 参考　http://taklog.hateblo.jp/entry/2016/12/11/091542
 // 参考　http://cidermitaina.hatenablog.com/entry/2017/11/27/014525
+// 参考　https://qiita.com/tonkotsuboy_com/items/2d4f3862e6d05dc0bea1
+// 参考　https://wemo.tech/1659
 
 
 const gulp = require('gulp');
@@ -19,7 +21,10 @@ const cssmin       = require('gulp-cssmin'); // cssのミニファイ
 
 // JavaScript
 //--------------------
-const uglify = require('gulp-uglify'); // JSファイルのミニファイ
+// const uglify = require('gulp-uglify'); JSファイルのミニファイ webpack以降のため使用停止
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack"); // webpack本体
+const webpackConfig = require("./webpack.config"); // webpackの設定ファイル
 
 // utility
 //--------------------
@@ -91,7 +96,7 @@ gulp.task('sass', () => {
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest(paths.cssDir))
+    // .pipe(gulp.dest(paths.cssDir))
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.cssDir))
@@ -131,20 +136,14 @@ gulp.task('img', gulp.parallel('imagemin', 'svgmin'));
 
 // js task
 //--------------------
-gulp.task('jsmin', () => {
-  return gulp.src(paths.jsSrc)
-      .pipe(cached('js'))
-      .pipe(gulp.dest(paths.jsDir))
-      .pipe(uglify({
-        output:{
-        comments: /^!/
-      }
-      }))
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(paths.jsDir))
+gulp.task('webpack', () => {
+  return webpackStream(webpackConfig, webpack).on('error', function (e) {
+    this.emit('end');
+  })
+    .pipe(gulp.dest(paths.jsDir))
 });
 
-gulp.task('js', gulp.parallel('jsmin'));
+gulp.task('js', gulp.parallel('webpack'));
 
 
 // Generate HTML
@@ -189,7 +188,7 @@ gulp.task('server', () => {
     xip      : false
   });
   watch(['src/sass/**/*.scss'], gulp.series('sass', browser.reload));
-  watch(['src/js/*.js'], gulp.series('jsmin', browser.reload));
+  watch(['src/js/*.js'], gulp.series('webpack', browser.reload));
   watch(['src/pug/**/*.pug'], gulp.series('pug', browser.reload));
   watch(['src/img/**/*'], gulp.series('img', browser.reload));
 });
